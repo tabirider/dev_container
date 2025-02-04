@@ -1,0 +1,29 @@
+services:
+  app:
+    build:  # 指定のDockerfileでイメージビルド(開発環境)
+      context: .
+      dockerfile: Dockerfile
+    image: python_sandbox_img  # 指定のimageがあれば利用、なければこのタグで作成
+    container_name: python_sandbox_container
+    # ports:
+    #   - "8000:8000"
+    runtime: nvidia
+    stdin_open: true
+    tty: true
+    env_file: .env
+    environment:
+      - SSH_AUTH_SOCK=/ssh-agent
+      # - PATH=${PATH}:/usr/local/cuda/bin
+    volumes:
+      - ${SSH_AUTH_SOCK}:/ssh-agent
+      - python_sandbox_vol:/app
+      - ~/.gitconfig:/root/.gitconfig:ro
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+
+volumes:
+  python_sandbox_vol:
+    external: true
