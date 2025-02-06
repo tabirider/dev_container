@@ -1,2 +1,4 @@
 .env
 **/__pycache__/**
+Python*.tar.xz
+*.xz
