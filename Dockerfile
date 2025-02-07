@@ -5,6 +5,7 @@ FROM ubuntu:24.04
 RUN apt update && apt upgrade -y && \
     apt install -y \
         git \
+        gpg \
         python3 \
         ssh
 
@@ -13,3 +14,4 @@ WORKDIR /app
 
 # デフォルトの実行コマンド
 CMD ["bash"]
+
