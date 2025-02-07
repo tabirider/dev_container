@@ -14,4 +14,3 @@ WORKDIR /app
 
 # デフォルトの実行コマンド
 CMD ["bash"]
-
