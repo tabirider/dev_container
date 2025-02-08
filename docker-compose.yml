@@ -28,6 +28,7 @@ services:
           devices:
             - capabilities: [gpu]
 
+
 volumes:
   dev_container_vol:
     external: true
