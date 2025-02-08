@@ -51,12 +51,16 @@ RUN     wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404
     &&  apt -y install cuda-toolkit-12-6
 
 # 必要なコマンド関係(好きなの足していく)
+# GPGに必要な環境変数の追加
 RUN     apt install -y \
             curl \
             git \
+            gnupg \
             ssh \
             tree \
-            vim
+            vim \
+    &&  echo 'GPG_TTY=$(tty)' >> /root/.bashrc && \
+        echo 'export GPG_TTY' >> /root/.bashrc
 
 #Python関係ライブラリインストール
 RUN     pip install --no-cache-dir \

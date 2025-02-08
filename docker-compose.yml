@@ -10,9 +10,9 @@ services:
     runtime: nvidia
     stdin_open: true
     tty: true
-    env_file: .env
+    # env_file: .env
     # environment:
-      # GPG_TTY=$(tty)
+      # GPG_TTY=$GPG_TTY
       # - SSH_AUTH_SOCK=/ssh-agent
       # - PATH=${PATH}:/usr/local/cuda/bin
     volumes:
