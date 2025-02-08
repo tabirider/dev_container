@@ -10,6 +10,7 @@ services:
     runtime: nvidia
     stdin_open: true
     tty: true
+
     # env_file: .env
     # environment:
       # GPG_TTY=$GPG_TTY
